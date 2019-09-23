@@ -7,10 +7,6 @@ $allData = retrieveData();
 
 
 
-echo formatData($allData[1]);
-
-echo displayData($allData);
-
 ?>
 
 
@@ -22,6 +18,10 @@ echo displayData($allData);
     <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
+
+<div class="container">
+    <?php echo displayData($allData); ?>
+</div>
 
 </body>
 </html>
