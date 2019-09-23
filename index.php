@@ -13,6 +13,7 @@ echo displayData($allData);
 <head>
     <meta charset="UTF-8">
     <title>title</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
 

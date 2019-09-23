@@ -24,16 +24,76 @@ function retrieveData(): array {
  *
  * @return string a string containing html code
  */
+//function displayData(array $data): string {
+//    $htmlToOutput = null;
+//
+//    foreach ($data as $row) {
+//        $htmlToOutput = '<div class="disease-item">' . $htmlToOutput;
+//        foreach ($row as $key => $value) {
+//            $htmlToOutput = $htmlToOutput . '<strong>' . $key . '</strong>: ' . $value . '<br>';
+//        }
+//        $htmlToOutput = $htmlToOutput . '</div>';
+//    }
+//
+//    return $htmlToOutput;
+//}
+
+
+
+//function formatData(array $row): string {
+//    $htmlToOutput = null;
+//
+//    $htmlToOutput = '<h6>' . $row['organism'] . '</h6><ul><li>';
+//    $htmlToOutput .= '<ul>';
+//
+//
+//
+//}
+
+
+
+
+/*
+ * Produce html text to display data
+ *
+ * @param array an array to present in the browser
+ *
+ * @return string a string containing html code
+ */
 function displayData(array $data): string {
     $htmlToOutput = null;
-
     foreach ($data as $row) {
-        $htmlToOutput = '<div class="disease.item">' . $htmlToOutput;
+        $htmlForRow = null;
         foreach ($row as $key => $value) {
-            $htmlToOutput = $htmlToOutput . '<strong>' . $key . '</strong>: ' . $value . '<br>';
+            $htmlForRow =  $htmlForRow . '<strong>' . $key . '</strong>: ' . $value . '<br>' ;
         }
-        $htmlToOutput = $htmlToOutput . '</div>' .'<br>';
+        $htmlForRow = '<div class="disease-item">' . $htmlForRow . '</div>' ;
+        $htmlToOutput = $htmlToOutput . $htmlForRow;
     }
-
     return $htmlToOutput;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
