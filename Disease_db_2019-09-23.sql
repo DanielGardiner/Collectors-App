@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.27)
 # Database: Disease_db
-# Generation Time: 2019-09-23 12:05:54 +0000
+# Generation Time: 2019-09-23 12:40:36 +0000
 # ************************************************************
 
 
@@ -25,11 +25,11 @@
 
 CREATE TABLE `disease_table` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `Organism` varchar(255) DEFAULT NULL,
+  `Organism` varchar(255) NOT NULL DEFAULT '',
   `Incubation_usual` varchar(255) DEFAULT NULL,
-  `Inubation_range` varchar(255) DEFAULT NULL,
-  `Symptoms` text,
-  `Severity` text,
+  `Incubation_range` varchar(255) DEFAULT NULL,
+  `Symptoms` varchar(255) DEFAULT '',
+  `Severity` varchar(255) DEFAULT '',
   `Avg_annual_incidence` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
