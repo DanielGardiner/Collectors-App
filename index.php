@@ -8,4 +8,12 @@ $query = $db->query('SELECT `Organism`, `Incubation_usual`, `Incubation_range`, 
 
 $allData = $query->fetchAll();
 
-var_dump($allData);
+foreach ($allData as $row) {
+    foreach ($row as $key => $value) {
+        echo '<strong>' . $key . '</strong>: ' . $value . '<br>';
+    }
+    echo '<br>';
+}
+
+?>
+
