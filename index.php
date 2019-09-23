@@ -20,8 +20,7 @@ $allData = retrieveData();
 <body>
 
 <div class="container">
-    <?php echo displayData($allData); ?>
+    <?php echo displayDisease($allData); ?>
 </div>
-
 </body>
 </html>

@@ -10,7 +10,7 @@ function retrieveData(): array {
 
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-    $query = $db->query('SELECT `Organism`, `Incubation_usual`, `Incubation_range`, `Symptoms`, `Severity`, `Avg_annual_incidence` FROM disease_table');
+    $query = $db->query('SELECT `Organism`, `Incubation_usual`, `Incubation_range`, `Symptoms`, `Severity`, `Avg_annual_incidence`, `Img_location` FROM disease_table');
 
     $output = $query->fetchAll();
 
@@ -24,18 +24,25 @@ function retrieveData(): array {
  *
  * @return string a string containing html code
  */
-function displayData(array $data): string {
+function displayDisease(array $data): string {
     $htmlToOutput = '';
     foreach ($data as $row) {
-        $htmlForRow = '';
+        $htmlForRow = '<div><img src="' . $row['Img_location'] . '" alt=""></div>';
+        unset($row['Img_location']);
         foreach ($row as $key => $value) {
-            $htmlForRow =  $htmlForRow . '<strong>' . $key . '</strong>: <br>' . $value . '<br>' ;
+            $htmlForRow =  $htmlForRow . '<strong>' . $key . '</strong><br>' . $value . '<br>' ;
         }
         $htmlForRow = '<div class="disease-item">' . $htmlForRow . '</div>' ;
         $htmlToOutput = $htmlToOutput . $htmlForRow;
     }
     return $htmlToOutput;
 }
+
+//
+//function displayImg(array $data): string {
+//    foreach ()
+//
+//}
 
 
 
