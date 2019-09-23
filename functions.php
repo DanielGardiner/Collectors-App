@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * Simple function to retrieve data from database
  *
  * @return array containing all data from database
@@ -40,20 +40,25 @@ function retrieveData(): array {
 
 
 
-//function formatData(array $row): string {
-//    $htmlToOutput = null;
-//
-//    $htmlToOutput = '<h6>' . $row['organism'] . '</h6><ul><li>';
-//    $htmlToOutput .= '<ul>';
-//
-//
-//
-//}
+function formatData(array $row): string {
+    $htmlToOutput = null;
+
+    $htmlToOutput = '<div class="disease-item"><h6>' . $row['Organism'] . '</h6><ul>';
+
+    unset($row['Organism']);
+
+    foreach ($row as $key => $value) {
+        $htmlToOutput .= '<li><strong>' . $key . '</strong>: ' . $value . '</li>';
+    }
+
+    $htmlToOutput = $htmlToOutput . '</ul></div>';
+
+    return $htmlToOutput;
+}
 
 
 
-
-/*
+/**
  * Produce html text to display data
  *
  * @param array an array to present in the browser
@@ -61,9 +66,9 @@ function retrieveData(): array {
  * @return string a string containing html code
  */
 function displayData(array $data): string {
-    $htmlToOutput = null;
+    $htmlToOutput = '';
     foreach ($data as $row) {
-        $htmlForRow = null;
+        $htmlForRow = '';
         foreach ($row as $key => $value) {
             $htmlForRow =  $htmlForRow . '<strong>' . $key . '</strong>: ' . $value . '<br>' ;
         }

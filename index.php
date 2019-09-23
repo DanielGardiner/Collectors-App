@@ -3,6 +3,12 @@ require('functions.php');
 
 $allData = retrieveData();
 
+// echo displayData($allData);
+
+
+
+echo formatData($allData[1]);
+
 echo displayData($allData);
 
 ?>
