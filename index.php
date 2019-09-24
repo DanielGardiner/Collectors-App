@@ -3,9 +3,6 @@ require('functions.php');
 
 $allData = retrieveData();
 
-// echo displayData($allData);
-
-
 
 ?>
 
@@ -19,8 +16,15 @@ $allData = retrieveData();
 </head>
 <body>
 
-<div class="container">
-    <?php echo displayDisease($allData); ?>
+
+<div class="page">
+    <nav>
+        <div class="link"><a href="#"><p>Collection</p></a></div>
+        <div class="link"><a href="#"><p>Add disease</p></a></div>
+    </nav>
+    <div class="container">
+        <?php echo displayDisease($allData); ?>
+    </div>
 </div>
 </body>
 </html>

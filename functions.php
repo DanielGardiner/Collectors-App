@@ -38,13 +38,6 @@ function displayDisease(array $data): string {
     return $htmlToOutput;
 }
 
-//
-//function displayImg(array $data): string {
-//    foreach ()
-//
-//}
-
-
 
 
 
