@@ -10,7 +10,6 @@
 </head>
 <body>
 
-
 <div class="page">
     <div class="nav-panel">
         <nav>

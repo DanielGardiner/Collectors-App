@@ -38,6 +38,19 @@ function displayDisease(array $data): string {
     return $htmlToOutput;
 }
 
+//
+//function addNewDiseaseToDB(array $userInput){
+//
+//
+//}
+//
+//$_POST['organism'],
+//$_POST['incubation_usual'],
+//$_POST['incubation_range'],
+//$_POST['symptoms'],
+//$_POST['severity'],
+//$_POST['avg_annual_incidence'],
+//$_POST['img_location']
 
 
 
