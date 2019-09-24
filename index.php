@@ -1,19 +1,30 @@
 <?php
+require('functions.php');
 
-$db = new PDO('mysql:host=db;dbname=Disease_db', 'root', 'password');
+$allData = retrieveData();
 
-$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-
-$query = $db->query('SELECT `Organism`, `Incubation_usual`, `Incubation_range`, `Symptoms`, `Severity`, `Avg_annual_incidence` FROM disease_table');
-
-$allData = $query->fetchAll();
-
-foreach ($allData as $row) {
-    foreach ($row as $key => $value) {
-        echo '<strong>' . $key . '</strong>: ' . $value . '<br>';
-    }
-    echo '<br>';
-}
 
 ?>
 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+<body>
+
+
+<div class="page">
+    <nav>
+        <div class="link"><a href="#"><p>Collection</p></a></div>
+        <div class="link"><a href="#"><p>Add disease</p></a></div>
+    </nav>
+    <div class="container">
+        <?php echo displayDisease($allData); ?>
+    </div>
+</div>
+</body>
+</html>
