@@ -1,4 +1,14 @@
 <?php
+require_once('functions.php');
+
+if (isset($_POST['organism']) &&
+    isset($_POST['incubation_usual']) &&
+    isset($_POST['incubation_range']) &&
+    isset($_POST['symptoms']) &&
+    isset($_POST['severity']) &&
+    isset($_POST['avg_annual_incidence'])) {
+    addNewDiseaseToDB();
+}
 
 ?>
 <!DOCTYPE html>
@@ -26,9 +36,9 @@
             <p>Symptoms</p>
             <p><input type="text" name="symptoms"></p>
             <p>Severity</p>
-            <p><input type="number" name="severity"></p>
+            <p><input type="text" name="severity"></p>
             <p>Average annual incidence</p>
-            <p><input type="text" name="avg_annual_incidence"></p>
+            <p><input type="number" name="avg_annual_incidence"></p>
             <p>Image</p>
             <p><input type="file" name="img_location"></p>
             <input type="submit">

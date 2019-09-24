@@ -38,22 +38,25 @@ function displayDisease(array $data): string {
     return $htmlToOutput;
 }
 
-//
-//function addNewDiseaseToDB(array $userInput){
-//
-//
-//}
-//
-//$_POST['organism'],
-//$_POST['incubation_usual'],
-//$_POST['incubation_range'],
-//$_POST['symptoms'],
-//$_POST['severity'],
-//$_POST['avg_annual_incidence'],
-//$_POST['img_location']
+/**
+ * Securely add user input to database
+ */
+function addNewDiseaseToDB()
+{
+    $db = new PDO('mysql:host=db;dbname=Disease_db', 'root', 'password');
 
+    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
+    $query = $db->prepare('INSERT INTO `disease_table` (`Organism`, `Incubation_usual`, `Incubation_range`, `Symptoms`, `Severity`, `Avg_annual_incidence`) 
+VALUES (:organism, :incubation_usual, :incubation_range, :symptoms, :severity, :avg_annual_incidence)');
 
+    $query->execute(['organism' => $_POST['organism'],
+        'incubation_usual' => $_POST['incubation_usual'],
+        'incubation_range' => $_POST['incubation_range'],
+        'symptoms' => $_POST['symptoms'],
+        'severity' => $_POST['severity'],
+        'avg_annual_incidence' => $_POST['avg_annual_incidence']]);
+}
 
 
 
