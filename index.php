@@ -17,6 +17,7 @@ $allData = retrieveData();
         <nav>
             <div class="link underline"><p>Collection</p></div>
             <div class="link"><a href="add_item.php"><p>Add disease</p></a></div>
+            <div class="link"><a href="remove_item.php"><p>Remove disease</p></a></div>
         </nav>
     </div>
     <div class="container">

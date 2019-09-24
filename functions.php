@@ -59,8 +59,30 @@ VALUES (:organism, :incubation_usual, :incubation_range, :symptoms, :severity, :
 }
 
 
+/**
+ * Grab all organism key-value pairs from a multidimensional array
+ *
+ * @param array to grab organisms from
+ *
+ * @return array of just organisms
+ */
+function grabAllOrganisms(array $data): array {
+    $organisms = [];
+    foreach ($data as $row){
+        $organisms[] = $row['Organism'];
+    }
+    return $organisms;
+}
 
 
+function createAllOrganismDropDown(array $organismArray): string {
+    $htmlToOutput = '';
+
+    foreach ($organismArray as $organism) {
+        $htmlToOutput .= '<option value="' . $organism . '">' . $organism . '</option>';
+    }
+    return $htmlToOutput;
+}
 
 
 

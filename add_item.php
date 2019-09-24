@@ -23,6 +23,7 @@ if (isset($_POST['organism']) &&
         <nav>
             <div class="link"><a href="index.php"><p>Collection</p></a></div>
             <div class="link underline"><p>Add disease</p></div>
+            <div class="link"><a href="remove_item.php"><p>Remove disease</p></a></div>
         </nav>
     </div>
     <div class="container add_item">
@@ -41,7 +42,7 @@ if (isset($_POST['organism']) &&
             <p><input type="number" name="avg_annual_incidence"></p>
             <p>Image</p>
             <p><input type="file" name="img_location"></p>
-            <input type="submit">
+            <p><input type="submit"></p>
         </form>
     </div>
 </body>

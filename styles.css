@@ -8,7 +8,7 @@ body {
 nav {
     display: flex;
     margin: 0 auto 10px auto;
-    width: 50%;
+    width: 70%;
     justify-content: center;
 }
 
@@ -50,6 +50,15 @@ form input {
     width: 40%;
     height: 20px;
     margin: 0 auto;
+}
+
+form.remove_item {
+    margin-top: 60px;
+}
+form.remove_item select {
+    width: 60%;
+    height: 40px;
+    font-size: 1.3rem;
 }
 
 .container form p {
