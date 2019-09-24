@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
-
-
-<div class="page">
     <div class="nav-panel">
         <nav>
             <div class="link"><a href="index.php"><p>Collection</p></a></div>
@@ -29,7 +26,7 @@
             <p>Symptoms</p>
             <p><input type="text" name="symptoms"></p>
             <p>Severity</p>
-            <p><input type="text" name="severity"></p>
+            <p><input type="number" name="severity"></p>
             <p>Average annual incidence</p>
             <p><input type="text" name="avg_annual_incidence"></p>
             <p>Image</p>
@@ -37,8 +34,5 @@
             <input type="submit">
         </form>
     </div>
-
-
-</div>
 </body>
 </html>
