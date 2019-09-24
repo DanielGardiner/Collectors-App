@@ -13,7 +13,6 @@ $allData = retrieveData();
     <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
-<div class="page">
     <div class="nav-panel">
         <nav>
             <div class="link underline"><p>Collection</p></div>
@@ -23,6 +22,5 @@ $allData = retrieveData();
     <div class="container">
         <?php echo displayDisease($allData); ?>
     </div>
-</div>
 </body>
 </html>
