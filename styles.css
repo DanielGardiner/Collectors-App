@@ -1,4 +1,6 @@
 
+
+
 .page {
     background-color: black;
 }
@@ -7,13 +9,25 @@ nav {
     display: flex;
     margin: 0 auto 10px auto;
     width: 50%;
-    background-color: grey;
     justify-content: center;
+}
+
+nav p {
+    padding-bottom: 0;
+
 }
 
 nav .link {
     margin: 0 50px;
     font-size: 2rem;
+}
+
+.link.underline {
+    border-bottom: 1px solid #d6d6d6;
+}
+
+.link p {
+    color: white;
 }
 
 .link a {
@@ -25,6 +39,28 @@ nav .link {
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
+}
+
+form {
+    width: 80%;
+    margin: 0 auto;
+}
+
+form input {
+    width: 40%;
+    height: 20px;
+    margin: 0 auto;
+}
+
+.container form p {
+    color: white;
+    text-align: center;
+    font-size: 1.4rem;
+    margin: 15px 0;
+}
+
+.add_item.container {
+    height: 900px;
 }
 
 .disease-item {
