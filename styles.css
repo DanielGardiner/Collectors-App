@@ -28,10 +28,15 @@ nav .link {
 
 .link p {
     color: #ffffff;
+    margin-bottom: 10px;
 }
 
 .link a {
     text-decoration: none;
+}
+
+#texty {
+    color: white;
 }
 
 .container {
@@ -90,3 +95,13 @@ form.remove_item select {
     border-radius: 3%;
 
 }
+
+
+
+
+/*.submit-remove{*/
+/*    width: 30%;*/
+/*    display: block;*/
+/*    padding-top: 10px;*/
+/*    height: 100px;*/
+/*}*/

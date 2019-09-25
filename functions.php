@@ -10,7 +10,7 @@ function retrieveData(): array {
 
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-    $query = $db->query('SELECT `Organism`, `Incubation_usual`, `Incubation_range`, `Symptoms`, `Severity`, `Avg_annual_incidence`, `Img_location` FROM disease_table');
+    $query = $db->query('SELECT `Organism`, `Incubation_usual`, `Incubation_range`, `Symptoms`, `Severity`, `Avg_annual_incidence`, `Img_location` FROM disease_table WHERE `Deleted` = 0');
 
     $output = $query->fetchAll();
 
@@ -62,7 +62,7 @@ VALUES (:organism, :incubation_usual, :incubation_range, :symptoms, :severity, :
 /**
  * Grab all organism key-value pairs from a multidimensional array
  *
- * @param array to grab organisms from
+ * @param array $data to grab organisms from
  *
  * @return array of just organisms
  */
@@ -74,7 +74,13 @@ function grabAllOrganisms(array $data): array {
     return $organisms;
 }
 
-
+/**
+ * Create an html drop down menu of organisms from an array of organisms
+ *
+ * @param array $organismArray containing set of organisms to pick from
+ *
+ * @return string containing html text to produce drop down menu of organisms
+ */
 function createAllOrganismDropDown(array $organismArray): string {
     $htmlToOutput = '';
 
@@ -84,10 +90,21 @@ function createAllOrganismDropDown(array $organismArray): string {
     return $htmlToOutput;
 }
 
+/**
+ * Delete organism from list of diseases on collection page
+ *
+ * @param string $organism specifying which to remove
+ */
+function deleteOrganism(string $organism) {
+    $db = new PDO('mysql:host=db;dbname=Disease_db', 'root', 'password');
 
+    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
+    $query = $db->prepare('UPDATE `disease_table` SET `Deleted` = 1 WHERE `Organism` = :organism');
 
+    $query->execute(['organism' => $organism]);
 
+}
 
 
 

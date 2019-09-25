@@ -3,6 +3,11 @@ require_once('functions.php');
 
 $allData = retrieveData();
 $allOrganisms = grabAllOrganisms($allData);
+
+if (isset($_POST['remove-organism'])) {
+    deleteOrganism($_POST['remove-organism']);
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,14 +25,11 @@ $allOrganisms = grabAllOrganisms($allData);
     </nav>
 </div>
 <div class="container remove_item">
-
-    <form class="remove_item">
+    <form class="remove_item" method="post">
         <p>Organism</p>
-        <select>
-            <div class="options">
-                <?php  echo createAllOrganismDropDown($allOrganisms); ?>
-            </div>
-            <div class="submit-remove_item"><input type="submit" value="Remove disease!"></div>
+        <select name="remove-organism" >
+            <?php  echo createAllOrganismDropDown($allOrganisms); ?>
+            <input class="submit-remove" type="submit" value="Remove disease!">
         </select>
     </form>
 </div>
