@@ -18,7 +18,7 @@ function retrieveData(): array {
 }
 
 /**
- * Produce html text to display data
+ * Produce html text to display disease data in browser
  *
  * @param array to present in the browser
  *

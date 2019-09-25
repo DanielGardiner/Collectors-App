@@ -94,7 +94,10 @@ form.remove_item select {
 
 }
 
+input[type="submit"] {
+    height: 80px;
 
+}
 
 
 /*.submit-remove{*/
