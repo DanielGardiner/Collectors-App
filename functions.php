@@ -5,7 +5,7 @@
  *
  * @return PDO connection to Disease_db database
  */
-function establishDisease_dbConnection() {
+function establishDisease_dbConnection(): PDO {
     $db = new PDO('mysql:host=db;dbname=Disease_db', 'root', 'password');
 
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
@@ -18,7 +18,7 @@ function establishDisease_dbConnection() {
  *
  * @return array containing all data from database
  */
-function retrieveData($db): array {
+function retrieveData(PDO $db): array {
     $query = $db->query('SELECT `Organism`, `Incubation_usual`, `Incubation_range`, `Symptoms`, `Severity`, `Avg_annual_incidence`, `Img_location` FROM `disease_table` WHERE `Deleted` = 0');
 
     $output = $query->fetchAll();
@@ -76,7 +76,7 @@ function moveUploadedImgToFolderAndGrabName() {
  *
  * @param string $imgFileName describing the name of the uploaded image file
  */
-function addNewDiseaseToDB($db, string $imgFileName)
+function addNewDiseaseToDB(PDO $db, string $imgFileName)
 {
     $query = $db->prepare('INSERT INTO `disease_table` (`Organism`, `Incubation_usual`, `Incubation_range`, `Symptoms`, `Severity`, `Avg_annual_incidence`, `Img_location`) 
 VALUES (:organism, :incubation_usual, :incubation_range, :symptoms, :severity, :avg_annual_incidence, :img_location)');
@@ -127,7 +127,7 @@ function createAllOrganismDropDown(array $organismArray): string {
  *
  * @param string $organism specifying which to remove
  */
-function deleteOrganism($db, string $organism) {
+function deleteOrganism(PDO $db, string $organism) {
 
     $query = $db->prepare('UPDATE `disease_table` SET `Deleted` = 1 WHERE `Organism` = :organism');
 
