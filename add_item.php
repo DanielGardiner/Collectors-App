@@ -47,7 +47,7 @@ if (isset($_POST['organism']) &&
             <p><input type="number" name="avg_annual_incidence"></p>
             <p>Image</p>
             <p><input type="file" name="img"></p>
-            <p><input type="submit"></p>
+            <p><input type="Add disease!"></p>
         </form>
     </div>
 </body>
