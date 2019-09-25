@@ -1,5 +1,5 @@
 <?php
-require('functions.php');
+require_once('functions.php');
 
 $allData = retrieveData();
 
@@ -18,6 +18,7 @@ $allData = retrieveData();
         <nav>
             <div class="heading underline"><p>Collection</p></div>
             <div class="heading"><a href="add_item.php"><p>Add disease</p></a></div>
+            <div class="heading"><a href="remove_item.php"><p>Remove disease</p></a></div>
         </nav>
     </div>
     <div class="container">
