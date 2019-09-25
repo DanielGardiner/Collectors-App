@@ -135,8 +135,20 @@ function deleteOrganism(PDO $db, string $organism) {
 
 }
 
-
-
+/**
+ * Grab database data for the organism selected by the user
+ *
+ * @param array $allData from database
+ *
+ * @return array of data for a specific organism
+ */
+function grabDataForSelectOrganism(array $allData): array {
+    foreach ($allData as $row) {
+        if ($row['Organism'] == $_POST['edit-organism']) {
+            return $row;
+        }
+    }
+}
 
 
 

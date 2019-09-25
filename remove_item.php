@@ -29,7 +29,7 @@ if (isset($_POST['remove-organism'])) {
 </div>
 <div class="container remove_item">
     <form class="remove_item" method="post">
-        <p>Organism</p>
+        <p>Select disease to remove</p>
         <select name="remove-organism" >
             <?php  echo createAllOrganismDropDown($allOrganisms); ?>
             <input class="submit-remove" type="submit" value="Eradicate disease!">
