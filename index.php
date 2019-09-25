@@ -6,10 +6,11 @@ $allData = retrieveData();
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Collection</title>
+    <link rel="stylesheet" href="normalize.css" type="text/css">
     <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
