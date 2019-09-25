@@ -1,6 +1,7 @@
 body {
-    background-color: #000000;
+    background: linear-gradient(to top, #6e6e6e, #000000);
 }
+
 
 nav {
     display: flex;
@@ -51,6 +52,10 @@ form input {
     margin: 0 auto;
 }
 
+.container.remove_item {
+    height: 900px;
+}
+
 form.remove_item {
     margin-top: 60px;
 }
@@ -58,7 +63,10 @@ form.remove_item select {
     width: 60%;
     height: 40px;
     font-size: 1.3rem;
+    display: block;
+    margin: 0 auto;
 }
+
 
 .container form p {
     color: #ffffff;
@@ -90,9 +98,31 @@ form.remove_item select {
 
 }
 
-input[type="submit"] {
-    height: 80px;
 
+input[type="file"] {
+    cursor: pointer;
+    /*background-color: #decaff;*/
+    /*height: 40px;*/
+    /*font-size: 2rem;*/
+}
+
+input[type="submit"] {
+    display: block;
+    background-color: #d6d6d6;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #6e6e6e;
+}
+
+
+
+
+.submit-remove {
+    margin-top: 30px;
 }
 
 

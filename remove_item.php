@@ -1,12 +1,15 @@
 <?php
 require_once('functions.php');
 
-$allData = retrieveData();
+$db = establishDisease_dbConnection();
+$allData = retrieveData($db);
 $allOrganisms = grabAllOrganisms($allData);
 
 if (isset($_POST['remove-organism'])) {
-    deleteOrganism($_POST['remove-organism']);
+    deleteOrganism($db, $_POST['remove-organism']);
 }
+
+
 
 ?>
 <!DOCTYPE html>
@@ -29,7 +32,7 @@ if (isset($_POST['remove-organism'])) {
         <p>Organism</p>
         <select name="remove-organism" >
             <?php  echo createAllOrganismDropDown($allOrganisms); ?>
-            <input class="submit-remove" type="submit" value="Remove disease!">
+            <input class="submit-remove" type="submit" value="Eradicate disease!">
         </select>
     </form>
 </div>
