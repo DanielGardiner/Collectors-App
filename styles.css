@@ -32,16 +32,12 @@ nav .heading {
     text-decoration: none;
 }
 
-#texty {
-    color: white;
-}
 
 .container {
     width: 95%;
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
-    justify-content: center;
 }
 
 form {
