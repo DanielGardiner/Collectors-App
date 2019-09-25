@@ -10,7 +10,8 @@ if (isset($_POST['organism']) &&
     isset($_FILES['img']) &&
     $_FILES['img']['name'] != '') {
     $imgFileName = moveUploadedImgToFolderAndGrabName();
-    addNewDiseaseToDB($imgFileName);
+    $db = establishDisease_dbConnection();
+    addNewDiseaseToDB($db, $imgFileName);
 }
 
 
