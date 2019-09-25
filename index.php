@@ -1,7 +1,8 @@
 <?php
 require_once('functions.php');
 
-$allData = retrieveData();
+$db = establishDisease_dbConnection();
+$allData = retrieveData($db);
 
 ?>
 

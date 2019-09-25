@@ -7,7 +7,8 @@ if (isset($_POST['organism']) &&
     isset($_POST['symptoms']) &&
     isset($_POST['severity']) &&
     isset($_POST['avg_annual_incidence'])) {
-    addNewDiseaseToDB();
+    $db = establishDisease_dbConnection();
+    addNewDiseaseToDB($db);
 }
 
 ?>

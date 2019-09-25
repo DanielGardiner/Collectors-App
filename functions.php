@@ -1,15 +1,24 @@
 <?php
 
 /**
- * Simple function to retrieve data from database
+ * Establish a connection to Disease_db database
  *
- * @return array containing all data from database
+ * @return PDO connection to Disease_db database
  */
-function retrieveData(): array {
+function establishDisease_dbConnection() {
     $db = new PDO('mysql:host=db;dbname=Disease_db', 'root', 'password');
 
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
+    return $db;
+}
+
+/**
+ * Simple function to retrieve data from database
+ *
+ * @return array containing all data from database
+ */
+function retrieveData($db): array {
     $query = $db->query('SELECT `Organism`, `Incubation_usual`, `Incubation_range`, `Symptoms`, `Severity`, `Avg_annual_incidence`, `Img_location` FROM `disease_table` WHERE `Deleted` = 0');
 
     $output = $query->fetchAll();
@@ -41,12 +50,8 @@ function displayDisease(array $data): string {
 /**
  * Securely add user input to database
  */
-function addNewDiseaseToDB()
+function addNewDiseaseToDB($db)
 {
-    $db = new PDO('mysql:host=db;dbname=Disease_db', 'root', 'password');
-
-    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-
     $query = $db->prepare('INSERT INTO `disease_table` (`Organism`, `Incubation_usual`, `Incubation_range`, `Symptoms`, `Severity`, `Avg_annual_incidence`) 
 VALUES (:organism, :incubation_usual, :incubation_range, :symptoms, :severity, :avg_annual_incidence)');
 
@@ -60,7 +65,7 @@ VALUES (:organism, :incubation_usual, :incubation_range, :symptoms, :severity, :
 
 
 /**
- * Grab all organism key-value pairs from a multidimensional array
+ * Creating an array of organism key-value pairs which will be used to select which organisms to delete from database
  *
  * @param array $data to grab organisms from
  *
@@ -91,14 +96,11 @@ function createAllOrganismDropDown(array $organismArray): string {
 }
 
 /**
- * Delete organism from list of diseases on collection page
+ * Set database Delete organism from list of diseases on collection page
  *
  * @param string $organism specifying which to remove
  */
-function deleteOrganism(string $organism) {
-    $db = new PDO('mysql:host=db;dbname=Disease_db', 'root', 'password');
-
-    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+function deleteOrganism($db, string $organism) {
 
     $query = $db->prepare('UPDATE `disease_table` SET `Deleted` = 1 WHERE `Organism` = :organism');
 
