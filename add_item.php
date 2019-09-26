@@ -13,9 +13,7 @@ if (isset($_POST['organism'])
     $db = establishDisease_dbConnection();
     addNewDiseaseToDB($db, $_POST['organism'], $_POST['incubation-usual'], $_POST['incubation-range'],
                       $_POST['symptoms'], $_POST['severity'], $_POST['avg-annual-incidence'], $imgFileName);
-
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

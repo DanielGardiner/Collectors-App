@@ -27,7 +27,6 @@ if (isset($_POST['organism'])
                  $_POST['incubation-range'], $_POST['symptoms'], $_POST['severity'], $_POST['avg-annual-incidence'],
                  $imgFileName);
 }
-
 ?>
 <!DOCTYPE html>
 <html>

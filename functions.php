@@ -141,7 +141,7 @@ function deleteOrganism(PDO $db, string $organism) {
     $query = $db->prepare('UPDATE `disease_table` SET `Deleted` = 1 WHERE `Organism` = :organism');
 
     $query->execute(['organism' => $organism]);
-    
+
     header('Location: remove_item.php');
 }
 
@@ -171,12 +171,12 @@ function grabDataForSelectedOrganism(array $allData, string $organism): array {
  */
 function createOrganismEditForm(array $organismArray): string {
 
-    return ' <form method="post" enctype="multipart/form-data"><label for="organism">Organism</label><input type="text" name="organism" id="organism"  value = "' .
-        $organismArray['Organism'] . '" required><label for="incubation-usual">Incubation usual</label><input type="text" name="incubation-usual" id="incubation-usual"  value = "' .
+    return ' <form method="post" enctype="multipart/form-data"><label for="organism">Organism</label><input type="text" name="organism" id="organism" value = "' .
+        $organismArray['Organism'] . '" required><label for="incubation-usual">Incubation usual</label><input type="text" name="incubation-usual" id="incubation-usual" value = "' .
         $organismArray['Incubation_usual'] . '" required><label for="incubation-range">Incubation range</label><input type="text" name="incubation-range" id="incubation-range" value = "' .
         $organismArray['Incubation_range'] . '" required><label for="symptoms">Symptoms</label><input type="text" name="symptoms" id="symptoms" value = "' .
-        $organismArray['Symptoms'] . '" required><label for="severity">Severity</label><input type="text" name="severity" id="severity"  value = "' .
-        $organismArray['Severity'] . '" required><label for="avg-annual-incidence">Average annual incidence</label><input type="number" name="avg-annual-incidence" id="avg-annual-incidence"  value = "' .
+        $organismArray['Symptoms'] . '" required><label for="severity">Severity</label><input type="text" name="severity" id="severity" value = "' .
+        $organismArray['Severity'] . '" required><label for="avg-annual-incidence">Average annual incidence</label><input type="number" name="avg-annual-incidence" id="avg-annual-incidence" value = "' .
         $organismArray['Avg_annual_incidence'] . '" required><label for="disease-img">Image</label><input type="file" name="disease-img" id="disease-img" required><input type="submit" value="Edit disease"></form>';
 }
 
