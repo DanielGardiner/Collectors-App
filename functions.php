@@ -76,6 +76,7 @@ function moveUploadedImgToFolderAndGrabName() {
 /**
  * Securely add user input to database as new row
  *
+ * @param PDO $db a database connection
  * @param string $imgFileName describing the name of the uploaded image file
  */
 function addNewDiseaseToDB(PDO $db, string $imgFileName)
@@ -91,48 +92,3 @@ VALUES (:organism, :incubation_usual, :incubation_range, :symptoms, :severity, :
         'avg_annual_incidence' => $_POST['avg-annual-incidence'],
         'img_location' => 'figures/' . $imgFileName]);
 }
-
-
-/**
- * Creating an array of organism key-value pairs which will be used to select which organisms to delete from database
- *
- * @param array $data to grab organisms from
- *
- * @return array of just organisms
- */
-function grabAllOrganisms(array $data): array {
-    $organisms = [];
-    foreach ($data as $row){
-        $organisms[] = $row['Organism'];
-    }
-    return $organisms;
-}
-
-/**
- * Create an html drop down menu of organisms from an array of organisms
- *
- * @param array $organismArray containing set of organisms to pick from
- *
- * @return string containing html text to produce drop down menu of organisms
- */
-function createAllOrganismDropDown(array $organismArray): string {
-    $htmlToOutput = '';
-
-    foreach ($organismArray as $organism) {
-        $htmlToOutput .= '<option value="' . $organism . '">' . $organism . '</option>';
-    }
-    return $htmlToOutput;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
