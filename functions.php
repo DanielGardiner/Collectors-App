@@ -124,19 +124,6 @@ function createAllOrganismDropDown(array $organismArray): string {
     return $htmlToOutput;
 }
 
-/**
- * Set database Delete organism from list of diseases on collection page
- *
- * @param string $organism specifying which to remove
- */
-function deleteOrganism(PDO $db, string $organism) {
-
-    $query = $db->prepare('UPDATE `disease_table` SET `Deleted` = 1 WHERE `Organism` = :organism');
-
-    $query->execute(['organism' => $organism]);
-
-}
-
 
 
 
