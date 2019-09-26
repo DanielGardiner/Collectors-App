@@ -1,14 +1,14 @@
 <?php
 require_once('functions.php');
 
-if (isset($_POST['organism']) &&
-    isset($_POST['incubation-usual']) &&
-    isset($_POST['incubation-range']) &&
-    isset($_POST['symptoms']) &&
-    isset($_POST['severity']) &&
-    isset($_POST['avg-annual-incidence']) &&
-    isset($_FILES['disease-img']) &&
-    $_FILES['disease-img']['name'] != '') {
+if (isset($_POST['organism'])
+    && isset($_POST['incubation-usual'])
+    && isset($_POST['incubation-range'])
+    && isset($_POST['symptoms'])
+    && isset($_POST['severity'])
+    && isset($_POST['avg-annual-incidence'])
+    && isset($_FILES['disease-img'])
+    && $_FILES['disease-img']['name'] != '') {
     $imgFileName = moveUploadedImgToFolderAndGrabName();
     $db = establishDisease_dbConnection();
     addNewDiseaseToDB($db, $imgFileName);
@@ -33,11 +33,11 @@ if (isset($_POST['organism']) &&
     <div class="add-item">
         <form method="post" enctype="multipart/form-data">
             <label for="organism">Organism</label>
-            <input type="text" name="organism" id="organism">
+            <input type="text" name="organism" id="organism" required>
             <label for="incubation-usual">Incubation usual</label>
-            <input type="text" name="incubation-usual" id="incubation-usual">
+            <input type="text" name="incubation-usual" id="incubation-usual" required>
             <label for="incubation-range">Incubation range</label>
-            <input type="text" name="incubation-range" id="incubation-range">
+            <input type="text" name="incubation-range" id="incubation-range" required>
             <label for="symptoms">Symptoms</label>
             <input type="text" name="symptoms" id="symptoms">
             <label for="severity">Severity</label>

@@ -4,6 +4,10 @@ body {
     font-family: "Apple SD Gothic Neo";
 }
 
+body p {
+    color: white;
+    font-size: 2rem;
+}
 
 nav {
     display: flex;
