@@ -1,7 +1,11 @@
+
 body {
     background: linear-gradient(to top, #6e6e6e, #000000);
-    /*font-family: "American Typewriter";*/
     font-family: "Apple SD Gothic Neo";
+}
+
+.edit-item-page {
+    height: 1200px;
 }
 
 body p {
@@ -12,7 +16,7 @@ body p {
 nav {
     display: flex;
     margin: 0 auto 10px auto;
-    width: 70%;
+    width: 80%;
     justify-content: center;
 }
 
@@ -59,19 +63,19 @@ form input {
 }
 
 
-.add-item {
+.add-item, edit-item {
     margin-top: 40px;
     height: 900px;
 
 }
 
-.add-item form {
+.add-item form, .edit-item form {
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 
-.add-item label {
+.add-item label, .edit-item label {
     margin: 15px auto ;
     color: white;
     font-size: 2rem;
@@ -81,10 +85,16 @@ form input {
     height: 900px;
 }
 
-form.remove-item {
+
+.edit-item {
+    margin-top: 70px;
+}
+
+form.remove-item, form.edit-item {
     margin-top: 60px;
 }
-form.remove-item select {
+
+form.remove-item select, form.edit-item select {
     width: 60%;
     height: 40px;
     font-size: 1.3rem;
@@ -118,8 +128,20 @@ form.remove-item select {
 
 }
 
+input[type="text"] {
+    font-size: 1rem;
+}
+
 input[type="file"] {
     cursor: pointer;
+}
+
+#disease-img {
+    /*color: rgba(255, 255, 255, 0);*/
+    background-color: #ffffff;
+    height: 30px;
+    margin-bottom: 30px;
+    font-size: 1rem;
 }
 
 input[type="submit"] {
@@ -136,4 +158,21 @@ input[type="submit"]:hover {
 
 .submit-remove {
     margin-top: 30px;
+}
+
+@media (max-width: 1370px) {
+    nav .heading p {
+        font-size: 1.4rem;
+    }
+
+    .disease-item img {
+        height: 200px;
+
+    }
+}
+
+@media (max-width: 1105px) {
+    nav .heading p {
+        font-size: 1.2rem;
+    }
 }
