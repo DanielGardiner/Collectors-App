@@ -76,6 +76,7 @@ function moveUploadedImgToFolderAndGrabName() {
 /**
  * Securely add user input to database as new row
  *
+ * @param PDO $db a connection to the database
  * @param string $imgFileName describing the name of the uploaded image file
  */
 function addNewDiseaseToDB(PDO $db, string $imgFileName)
@@ -191,6 +192,3 @@ function editOrganism(PDO $db, string $imgFileName, string $selectedOrganism) {
         'avg_annual_incidence' => $_POST['avg-annual-incidence'],
         'img_location' => 'figures/' . $imgFileName]);
 }
-
-
-
