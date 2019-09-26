@@ -7,7 +7,7 @@ $allData = retrieveData($db);
 $allOrganisms = grabAllOrganisms($allData);
 
 if (isset($_POST['edit-organism'])) {
-    $organismArray = grabDataForSelectOrganism($allData);
+    $organismArray = grabDataForSelectedOrganism($allData);
     $_SESSION['selectedOrganism'] = $organismArray['Organism'];
     $formWithGrabbedOrganismData = createOrganismEditForm($organismArray);
 } else {
@@ -34,24 +34,22 @@ if (isset($_POST['organism'])
     <title>Add item</title>
     <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
-<body>
-
-
+<body class="edit-item-page">
 <div class="nav-panel">
     <nav>
         <div class="heading"><a href="index.php"><p>Collection</p></a></div>
         <div class="heading"><a href="add_item.php"><p>Add Disease</p></a></div>
         <div class="heading underline"><p>Edit Disease</p></div>
-        <div class="heading"><a href="remove_item.php"><p>Remove disease</p></a></div>
+        <div class="heading"><a href="remove_item.php"><p>Remove Disease</p></a></div>
     </nav>
 </div>
 
 <div class="container edit-item">
     <form class="edit-item" method="post">
-        <p>Select disease to edit</p>
+<!--        <p>Select disease to edit</p>-->
         <select name="edit-organism" >
             <?php  echo createAllOrganismDropDown($allOrganisms); ?>
-            <input class="submit-remove" type="submit" value="Edit disease">
+            <input class="submit-remove" type="submit" value="Select disease">
         </select>
     </form>
 </div>

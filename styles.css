@@ -1,6 +1,11 @@
+
 body {
     background: linear-gradient(to top, #6e6e6e, #000000);
     font-family: "Apple SD Gothic Neo";
+}
+
+.edit-item-page {
+    height: 1200px;
 }
 
 body p {
@@ -76,11 +81,6 @@ form input {
     font-size: 2rem;
 }
 
-
-
-
-
-
 .container.remove-item {
     height: 900px;
 }
@@ -152,4 +152,21 @@ input[type="submit"]:hover {
 
 .submit-remove {
     margin-top: 30px;
+}
+
+@media (max-width: 1370px) {
+    nav .heading p {
+        font-size: 1.4rem;
+    }
+
+    .disease-item img {
+        height: 200px;
+
+    }
+}
+
+@media (max-width: 1105px) {
+    nav .heading p {
+        font-size: 1.2rem;
+    }
 }

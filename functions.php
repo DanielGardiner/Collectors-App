@@ -144,7 +144,7 @@ function deleteOrganism(PDO $db, string $organism) {
  *
  * @return array of data for a specific organism
  */
-function grabDataForSelectOrganism(array $allData): array {
+function grabDataForSelectedOrganism(array $allData): array {
     foreach ($allData as $row) {
         if ($row['Organism'] == $_POST['edit-organism']) {
             return $row;
@@ -175,8 +175,8 @@ function createOrganismEditForm(array $organismArray): string {
  * Edit database data for a selected organism
  *
  * @param PDO $db database to edit
- * @param string $imgFileName details of update
- * @param string $selectedOrganism the organism data to update
+ * @param string $imgFileName details of the updated image file name
+ * @param string $selectedOrganism the organism selected by the user to update data
  */
 function editOrganism(PDO $db, string $imgFileName, string $selectedOrganism) {
     $query = $db->prepare('UPDATE `disease_table` SET `Organism` = :organism, `Incubation_usual` = :incubation_usual, `Incubation_range` = :incubation_range, `Symptoms` = :symptoms, 

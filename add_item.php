@@ -26,9 +26,9 @@ if (isset($_POST['organism'])
     <div class="nav-panel">
         <nav>
             <div class="heading"><a href="index.php"><p>Collection</p></a></div>
-            <div class="heading underline"><p>Add disease</p></div>
-            <div class="heading"><a href="edit_item.php"><p>Edit disease</p></a></div>
-            <div class="heading"><a href="remove_item.php"><p>Remove disease</p></a></div>
+            <div class="heading underline"><p>Add Disease</p></div>
+            <div class="heading"><a href="edit_item.php"><p>Edit Disease</p></a></div>
+            <div class="heading"><a href="remove_item.php"><p>Remove Disease</p></a></div>
         </nav>
     </div>
     <div class="add-item">
