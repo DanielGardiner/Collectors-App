@@ -141,7 +141,8 @@ function deleteOrganism(PDO $db, string $organism) {
     $query = $db->prepare('UPDATE `disease_table` SET `Deleted` = 1 WHERE `Organism` = :organism');
 
     $query->execute(['organism' => $organism]);
-
+    
+    header('Location: remove_item.php');
 }
 
 /**

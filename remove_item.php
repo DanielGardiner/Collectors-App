@@ -5,6 +5,7 @@ $db = establishDisease_dbConnection();
 $allData = retrieveData($db);
 $allOrganisms = grabAllOrganisms($allData);
 
+
 if (isset($_POST['remove-organism'])) {
     deleteOrganism($db, $_POST['remove-organism']);
 }
