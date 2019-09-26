@@ -28,44 +28,19 @@ if (isset($_POST['edit-organism'])) {
     echo '<form method="post" enctype="multipart/form-data">
     <p>Organism</p>
     <p><input type="text" name="organism" value = "' .
-
     $organismArray['Organism'] .
-
-    '"></p>
-    <p>Incubation usual</p>
-    <p><input type="text" name="incubation_usual" value="' .
-
+    '"></p><p>Incubation usual</p><p><input type="text" name="incubation_usual" value="' .
     $organismArray['Incubation_usual'] .
-
-    '"></p>
-    <p>Incubation range</p>
-    <p><input type="text" name="incubation_range" value="' .
-
+    '"></p><p>Incubation range</p><p><input type="text" name="incubation_range" value="' .
     $organismArray['Incubation_range'] .
-
-    '"></p>
-    <p>Symptoms</p>
-    <p><input type="text" name="symptoms" value="' .
-
+    '"></p><p>Symptoms</p><p><input type="text" name="symptoms" value="' .
     $organismArray['Symptoms'] .
-
-    '"></p>
-    <p>Severity</p>
-    <p><input type="text" name="severity" value="' .
-
+    '"></p><p>Severity</p><p><input type="text" name="severity" value="' .
     $organismArray['Severity'] .
-
-'"></p>
-    <p>Average annual incidence</p>
-    <p><input type="number" name="avg_annual_incidence" value="' .
-
+'"></p><p>Average annual incidence</p><p><input type="number" name="avg_annual_incidence" value="' .
 $organismArray['Avg_annual_incidence'] .
-
 '"></p>
-    <p>Image</p>
-    <p><input type="file" name="img"></p>
-    <p><input type="submit" value="Edit disease"></p>
-</form>' ;
+    <p>Image</p><p><input type="file" name="img"></p><p><input type="submit" value="Edit disease"></p></form>' ;
 } else {
 
 }
