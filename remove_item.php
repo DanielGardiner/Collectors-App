@@ -13,7 +13,7 @@ if (isset($_POST['remove-organism'])) {
 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Remove item</title>
@@ -27,8 +27,8 @@ if (isset($_POST['remove-organism'])) {
         <div class="heading underline"><p>Remove disease</p></div>
     </nav>
 </div>
-<div class="container remove_item">
-    <form class="remove_item" method="post">
+<div class="container remove-item">
+    <form class="remove-item" method="post">
         <p>Organism</p>
         <select name="remove-organism" >
             <?php  echo createAllOrganismDropDown($allOrganisms); ?>

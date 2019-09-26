@@ -5,7 +5,6 @@ $db = establishDisease_dbConnection();
 $allData = retrieveData($db);
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

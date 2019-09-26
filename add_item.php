@@ -2,22 +2,21 @@
 require_once('functions.php');
 
 if (isset($_POST['organism']) &&
-    isset($_POST['incubation_usual']) &&
-    isset($_POST['incubation_range']) &&
+    isset($_POST['incubation-usual']) &&
+    isset($_POST['incubation-range']) &&
     isset($_POST['symptoms']) &&
     isset($_POST['severity']) &&
-    isset($_POST['avg_annual_incidence']) &&
-    isset($_FILES['img']) &&
-    $_FILES['img']['name'] != '') {
+    isset($_POST['avg-annual-incidence']) &&
+    isset($_FILES['disease-img']) &&
+    $_FILES['disease-img']['name'] != '') {
     $imgFileName = moveUploadedImgToFolderAndGrabName();
     $db = establishDisease_dbConnection();
     addNewDiseaseToDB($db, $imgFileName);
 }
 
-
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Add item</title>
@@ -31,23 +30,23 @@ if (isset($_POST['organism']) &&
             <div class="heading"><a href="remove_item.php"><p>Remove disease</p></a></div>
         </nav>
     </div>
-    <div class="container add_item">
+    <div class="add-item">
         <form method="post" enctype="multipart/form-data">
-            <p>Organism</p>
-            <p><input type="text" name="organism"></p>
-            <p>Incubation usual</p>
-            <p><input type="text" name="incubation_usual"></p>
-            <p>Incubation range</p>
-            <p><input type="text" name="incubation_range"></p>
-            <p>Symptoms</p>
-            <p><input type="text" name="symptoms"></p>
-            <p>Severity</p>
-            <p><input type="text" name="severity"></p>
-            <p>Average annual incidence</p>
-            <p><input type="number" name="avg_annual_incidence"></p>
-            <p>Image</p>
-            <p><input type="file" name="img"></p>
-            <p><input type="submit"></p>
+            <label for="organism">Organism</label>
+            <input type="text" name="organism" id="organism">
+            <label for="incubation-usual">Incubation usual</label>
+            <input type="text" name="incubation-usual" id="incubation-usual">
+            <label for="incubation-range">Incubation range</label>
+            <input type="text" name="incubation-range" id="incubation-range">
+            <label for="symptoms">Symptoms</label>
+            <input type="text" name="symptoms" id="symptoms">
+            <label for="severity">Severity</label>
+            <input type="text" name="severity" id="severity">
+            <label for="avg-annual-incidence">Average annual incidence</label>
+            <input type="number" name="avg-annual-incidence" id="avg-annual-incidence">
+            <label for="disease-img">Image</label>
+            <input type="file" name="disease-img" id="disease-img">
+            <input type="submit">
         </form>
     </div>
 </body>
