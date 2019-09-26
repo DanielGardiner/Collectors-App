@@ -11,7 +11,7 @@ body p {
 nav {
     display: flex;
     margin: 0 auto 10px auto;
-    width: 70%;
+    width: 80%;
     justify-content: center;
 }
 
@@ -58,7 +58,7 @@ form input {
 }
 
 
-.add-item {
+.add-item, edit-item {
     margin-top: 40px;
     height: 900px;
 
@@ -70,7 +70,7 @@ form input {
     text-align: center;
 }
 
-.add-item label {
+.add-item label, .edit-item label {
     margin: 15px auto ;
     color: white;
     font-size: 2rem;
@@ -85,10 +85,16 @@ form input {
     height: 900px;
 }
 
-form.remove-item {
+
+.edit-item {
+    margin-top: 70px;
+}
+
+form.remove-item, form.edit-item {
     margin-top: 60px;
 }
-form.remove-item select {
+
+form.remove-item select, form.edit-item select {
     width: 60%;
     height: 40px;
     font-size: 1.3rem;
@@ -120,6 +126,11 @@ form.remove-item select {
     border: 1px solid #000000;
     border-radius: 3%;
 
+}
+
+
+input[type="text"] {
+    font-size: 1rem;
 }
 
 

@@ -27,6 +27,7 @@ if (isset($_POST['organism'])
         <nav>
             <div class="heading"><a href="index.php"><p>Collection</p></a></div>
             <div class="heading underline"><p>Add disease</p></div>
+            <div class="heading"><a href="edit_item.php"><p>Edit disease</p></a></div>
             <div class="heading"><a href="remove_item.php"><p>Remove disease</p></a></div>
         </nav>
     </div>
@@ -39,13 +40,13 @@ if (isset($_POST['organism'])
             <label for="incubation-range">Incubation range</label>
             <input type="text" name="incubation-range" id="incubation-range" required>
             <label for="symptoms">Symptoms</label>
-            <input type="text" name="symptoms" id="symptoms">
+            <input type="text" name="symptoms" id="symptoms" required>
             <label for="severity">Severity</label>
-            <input type="text" name="severity" id="severity">
+            <input type="text" name="severity" id="severity" required>
             <label for="avg-annual-incidence">Average annual incidence</label>
-            <input type="number" name="avg-annual-incidence" id="avg-annual-incidence">
+            <input type="number" name="avg-annual-incidence" id="avg-annual-incidence" required>
             <label for="disease-img">Image</label>
-            <input type="file" name="disease-img" id="disease-img">
+            <input type="file" name="disease-img" id="disease-img" required>
             <input type="submit">
         </form>
     </div>
