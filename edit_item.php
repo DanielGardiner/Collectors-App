@@ -19,10 +19,9 @@ if (isset($_POST['organism'])
     && isset($_POST['incubation-range'])
     && isset($_POST['symptoms'])
     && isset($_POST['severity'])
-    && isset($_POST['avg-annual-incidence'])
-    && isset($_FILES['disease-img'])
-    && $_FILES['disease-img']['name'] != '') {
+    && isset($_POST['avg-annual-incidence'])) {
     $imgFileName = moveUploadedImgToFolderAndGrabName();
+    echo $imgFileName;
     editOrganism($db, $_SESSION['selectedOrganism'], $_POST['organism'], $_POST['incubation-usual'],
                  $_POST['incubation-range'], $_POST['symptoms'], $_POST['severity'], $_POST['avg-annual-incidence'],
                  $imgFileName);
@@ -47,7 +46,6 @@ if (isset($_POST['organism'])
 
 <div class="container edit-item">
     <form class="edit-item" method="post">
-<!--        <p>Select disease to edit</p>-->
         <select name="edit-organism" >
             <?php  echo createAllOrganismDropDown($allOrganisms); ?>
             <input class="submit-remove" type="submit" value="Select disease">

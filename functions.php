@@ -68,7 +68,7 @@ function moveUploadedImgToFolderAndGrabName() {
         move_uploaded_file($fileTmpName, $fileDestination);
         return $fileNameNew;
     } else {
-        exit('Image upload error!');
+        return 'No image uploaded';
     }
 }
 
@@ -177,7 +177,7 @@ function createOrganismEditForm(array $organismArray): string {
         $organismArray['Incubation_range'] . '" required><label for="symptoms">Symptoms</label><input type="text" name="symptoms" id="symptoms" value = "' .
         $organismArray['Symptoms'] . '" required><label for="severity">Severity</label><input type="text" name="severity" id="severity" value = "' .
         $organismArray['Severity'] . '" required><label for="avg-annual-incidence">Average annual incidence</label><input type="number" name="avg-annual-incidence" id="avg-annual-incidence" value = "' .
-        $organismArray['Avg_annual_incidence'] . '" required><label for="disease-img">Image</label><input type="file" name="disease-img" id="disease-img" required><input type="submit" value="Edit disease"></form>';
+        $organismArray['Avg_annual_incidence'] . '" required><label for="disease-img">Image</label><input type="file" name="disease-img" id="disease-img"><input type="submit" value="Edit disease"></form>';
 }
 
 /**
@@ -196,16 +196,25 @@ function createOrganismEditForm(array $organismArray): string {
 function editOrganism(PDO $db, string $selectedOrganism, string $organism,
 string $incubationUsual, string $incubationRange, string $symptoms, string $severity, string $avgAnnualIncidence,
     string $imgFileName) {
-    $query = $db->prepare('UPDATE `disease_table` SET `Organism` = :organism, `Incubation_usual` = :incubation_usual, `Incubation_range` = :incubation_range, `Symptoms` = :symptoms, 
-`Severity` = :severity, `Avg_annual_incidence` = :avg_annual_incidence, `Img_location` = :img_location WHERE `Organism` = :selected_organism');
 
-    $query->execute(['selected_organism' => $selectedOrganism,
+    $executeArray = ['selected_organism' => $selectedOrganism,
         'organism' => $organism,
         'incubation_usual' => $incubationUsual,
         'incubation_range' => $incubationRange,
         'symptoms' => $symptoms,
         'severity' => $severity,
-        'avg_annual_incidence' => $avgAnnualIncidence,
-        'img_location' => 'figures/' . $imgFileName]);
+        'avg_annual_incidence' => $avgAnnualIncidence];
 
+    if ($imgFileName == 'No image uploaded') {
+        $query = $db->prepare('UPDATE `disease_table` SET `Organism` = :organism, `Incubation_usual` = :incubation_usual, `Incubation_range` = :incubation_range, `Symptoms` = :symptoms, 
+`Severity` = :severity, `Avg_annual_incidence` = :avg_annual_incidence WHERE `Organism` = :selected_organism');
+
+    } else {
+        $query = $db->prepare('UPDATE `disease_table` SET `Organism` = :organism, `Incubation_usual` = :incubation_usual, `Incubation_range` = :incubation_range, `Symptoms` = :symptoms, 
+`Severity` = :severity, `Avg_annual_incidence` = :avg_annual_incidence, `Img_location` = :img_location WHERE `Organism` = :selected_organism');
+
+        $executeArray[] = ['img_location' => 'figures/' . $imgFileName];
+
+    }
+    $query->execute($executeArray);
 }
