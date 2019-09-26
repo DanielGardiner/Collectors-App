@@ -1,8 +1,12 @@
 body {
-    /*background: linear-gradient(to top, #6e6e6e, #000000);*/
+    background: linear-gradient(to top, #6e6e6e, #000000);
     font-family: "Apple SD Gothic Neo";
 }
 
+body p {
+    color: white;
+    font-size: 2rem;
+}
 
 nav {
     display: flex;
@@ -53,14 +57,37 @@ form input {
     margin: 0 auto;
 }
 
-.container.remove_item {
+
+.add-item {
+    margin-top: 40px;
+    height: 900px;
+
+}
+
+.add-item form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.add-item label {
+    margin: 15px auto ;
+    color: white;
+    font-size: 2rem;
+}
+
+
+
+
+
+.container.remove-item {
     height: 900px;
 }
 
-form.remove_item {
+form.remove-item {
     margin-top: 60px;
 }
-form.remove_item select {
+form.remove-item select {
     width: 60%;
     height: 40px;
     font-size: 1.3rem;
@@ -73,10 +100,6 @@ form.remove_item select {
     text-align: center;
     font-size: 2rem;
     margin: 15px 0;
-}
-
-.add_item.container {
-    height: 900px;
 }
 
 .disease-item {
@@ -101,9 +124,6 @@ form.remove_item select {
 
 input[type="file"] {
     cursor: pointer;
-    /*background-color: #decaff;*/
-    /*height: 40px;*/
-    /*font-size: 2rem;*/
 }
 
 input[type="submit"] {
@@ -118,17 +138,6 @@ input[type="submit"]:hover {
     background-color: #6e6e6e;
 }
 
-
-
-
 .submit-remove {
     margin-top: 30px;
 }
-
-
-/*.submit-remove{*/
-/*    width: 30%;*/
-/*    display: block;*/
-/*    padding-top: 10px;*/
-/*    height: 100px;*/
-/*}*/

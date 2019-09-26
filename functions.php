@@ -54,19 +54,21 @@ function displayDisease(array $data): string {
  * @return string containing the name of the uploaded file
  */
 function moveUploadedImgToFolderAndGrabName() {
-    $fileName = $_FILES['img']['name'];
-    $fileTmpName = $_FILES['img']['tmp_name'];
-    $fileSize = $_FILES['img']['size'];
-    $fileError = $_FILES['img']['error'];
+    $fileName = $_FILES['disease-img']['name'];
+    $fileTmpName = $_FILES['disease-img']['tmp_name'];
+    $fileSize = $_FILES['disease-img']['size'];
+    $fileError = $_FILES['disease-img']['error'];
 
-    $fileExt = explode('.', $fileName);
-    $fileActualExt = strtolower(end($fileExt));
+    $fileNameParts = explode('.', $fileName);
+    $fileExt = strtolower(end($fileNameParts));
     $allowed = ['jpg', 'jpeg', 'png', 'pdf'];
-    if (in_array( $fileActualExt, $allowed) && $fileError === 0 && $fileSize < 900000) {
-        $fileNameNew = uniqid($fileName, true) . '.' . $fileActualExt;
+    if (in_array( $fileExt, $allowed) && $fileError === 0 && $fileSize < 900000) {
+        $fileNameNew = uniqid($fileName, true) . '.' . $fileExt;
         $fileDestination = 'figures/' . $fileNameNew;
         move_uploaded_file($fileTmpName, $fileDestination);
         return $fileNameNew;
+    } else {
+        exit('Image upload error!');
     }
 }
 
@@ -82,11 +84,11 @@ function addNewDiseaseToDB(PDO $db, string $imgFileName)
 VALUES (:organism, :incubation_usual, :incubation_range, :symptoms, :severity, :avg_annual_incidence, :img_location)');
 
     $query->execute(['organism' => $_POST['organism'],
-        'incubation_usual' => $_POST['incubation_usual'],
-        'incubation_range' => $_POST['incubation_range'],
+        'incubation_usual' => $_POST['incubation-usual'],
+        'incubation_range' => $_POST['incubation-range'],
         'symptoms' => $_POST['symptoms'],
         'severity' => $_POST['severity'],
-        'avg_annual_incidence' => $_POST['avg_annual_incidence'],
+        'avg_annual_incidence' => $_POST['avg-annual-incidence'],
         'img_location' => 'figures/' . $imgFileName]);
 }
 
