@@ -7,7 +7,7 @@ $allData = retrieveData($db);
 $allOrganisms = grabAllOrganisms($allData);
 
 if (isset($_POST['edit-organism'])) {
-    $organismArray = grabDataForSelectedOrganism($allData);
+    $organismArray = grabDataForSelectedOrganism($allData, $_POST['edit-organism']);
     $_SESSION['selectedOrganism'] = $organismArray['Organism'];
     $formWithGrabbedOrganismData = createOrganismEditForm($organismArray);
 } else {
@@ -23,7 +23,9 @@ if (isset($_POST['organism'])
     && isset($_FILES['disease-img'])
     && $_FILES['disease-img']['name'] != '') {
     $imgFileName = moveUploadedImgToFolderAndGrabName();
-    editOrganism($db, $imgFileName, $_SESSION['selectedOrganism']);
+    editOrganism($db, $_SESSION['selectedOrganism'], $_POST['organism'], $_POST['incubation-usual'],
+                 $_POST['incubation-range'], $_POST['symptoms'], $_POST['severity'], $_POST['avg-annual-incidence'],
+                 $imgFileName);
 }
 
 ?>

@@ -76,24 +76,26 @@ function moveUploadedImgToFolderAndGrabName() {
 /**
  * Securely add user input to database as new row
  *
-<<<<<<< HEAD
- * @param PDO $db a connection to the database
-=======
  * @param PDO $db a database connection
->>>>>>> master
  * @param string $imgFileName describing the name of the uploaded image file
  */
-function addNewDiseaseToDB(PDO $db, string $imgFileName)
-{
+function addNewDiseaseToDB(PDO $db,
+                           string $organism,
+                           string $incubationUsual,
+                           string $incubationRange,
+                           string $symptoms,
+                           string $severity,
+                           string $avgAnnualIncidence,
+                           string $imgFileName) {
     $query = $db->prepare('INSERT INTO `disease_table` (`Organism`, `Incubation_usual`, `Incubation_range`, `Symptoms`, `Severity`, `Avg_annual_incidence`, `Img_location`) 
 VALUES (:organism, :incubation_usual, :incubation_range, :symptoms, :severity, :avg_annual_incidence, :img_location)');
 
-    $query->execute(['organism' => $_POST['organism'],
-        'incubation_usual' => $_POST['incubation-usual'],
-        'incubation_range' => $_POST['incubation-range'],
-        'symptoms' => $_POST['symptoms'],
-        'severity' => $_POST['severity'],
-        'avg_annual_incidence' => $_POST['avg-annual-incidence'],
+    $query->execute(['organism' => $organism,
+        'incubation_usual' => $incubationUsual,
+        'incubation_range' => $incubationRange,
+        'symptoms' => $symptoms,
+        'severity' => $severity,
+        'avg_annual_incidence' => $avgAnnualIncidence,
         'img_location' => 'figures/' . $imgFileName]);
 }
 
@@ -146,12 +148,13 @@ function deleteOrganism(PDO $db, string $organism) {
  * Grab database data for the organism selected by the user
  *
  * @param array $allData from database
+ * @param string $organism to grab data for
  *
  * @return array of data for a specific organism
  */
-function grabDataForSelectedOrganism(array $allData): array {
+function grabDataForSelectedOrganism(array $allData, string $organism): array {
     foreach ($allData as $row) {
-        if ($row['Organism'] == $_POST['edit-organism']) {
+        if ($row['Organism'] == $organism) {
             return $row;
         }
     }
@@ -180,20 +183,28 @@ function createOrganismEditForm(array $organismArray): string {
  * Edit database data for a selected organism
  *
  * @param PDO $db database to edit
- * @param string $imgFileName details of the updated image file name
  * @param string $selectedOrganism the organism selected by the user to update data
+ * @param string $organism updated data
+ * @param string $incubationUsual updated data
+ * @param string $incubationRange updated data
+ * @param string $symptoms updated data
+ * @param string $severity updated data
+ * @param string $avgAnnualIncidence updated data
+ * @param string $imgFileName details of the updated image file name
  */
-function editOrganism(PDO $db, string $imgFileName, string $selectedOrganism) {
+function editOrganism(PDO $db, string $selectedOrganism, string $organism,
+string $incubationUsual, string $incubationRange, string $symptoms, string $severity, string $avgAnnualIncidence,
+    string $imgFileName) {
     $query = $db->prepare('UPDATE `disease_table` SET `Organism` = :organism, `Incubation_usual` = :incubation_usual, `Incubation_range` = :incubation_range, `Symptoms` = :symptoms, 
 `Severity` = :severity, `Avg_annual_incidence` = :avg_annual_incidence, `Img_location` = :img_location WHERE `Organism` = :selected_organism');
 
     $query->execute(['selected_organism' => $selectedOrganism,
-        'organism' => $_POST['organism'],
-        'incubation_usual' => $_POST['incubation-usual'],
-        'incubation_range' => $_POST['incubation-range'],
-        'symptoms' => $_POST['symptoms'],
-        'severity' => $_POST['severity'],
-        'avg_annual_incidence' => $_POST['avg-annual-incidence'],
+        'organism' => $organism,
+        'incubation_usual' => $incubationUsual,
+        'incubation_range' => $incubationRange,
+        'symptoms' => $symptoms,
+        'severity' => $severity,
+        'avg_annual_incidence' => $avgAnnualIncidence,
         'img_location' => 'figures/' . $imgFileName]);
 
 }

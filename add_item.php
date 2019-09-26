@@ -11,7 +11,9 @@ if (isset($_POST['organism'])
     && $_FILES['disease-img']['name'] != '') {
     $imgFileName = moveUploadedImgToFolderAndGrabName();
     $db = establishDisease_dbConnection();
-    addNewDiseaseToDB($db, $imgFileName);
+    addNewDiseaseToDB($db, $_POST['organism'], $_POST['incubation-usual'], $_POST['incubation-range'],
+                      $_POST['symptoms'], $_POST['severity'], $_POST['avg-annual-incidence'], $imgFileName);
+
 }
 
 ?>
