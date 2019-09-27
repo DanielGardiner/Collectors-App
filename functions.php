@@ -218,3 +218,8 @@ string $incubationUsual, string $incubationRange, string $symptoms, string $seve
     }
     $query->execute($executeArray);
 }
+
+
+function restoreDiseases() {
+    // add code to restore diseases back to default;
+}
