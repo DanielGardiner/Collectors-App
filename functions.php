@@ -6,7 +6,7 @@
  * @return PDO connection to Disease_db database
  */
 function establishDisease_dbConnection(): PDO {
-    $db = new PDO('mysql:host=db;dbname=Disease_db', 'root', 'password');
+    $db = new PDO('mysql:host=db;dbname=DiseaseDB2', 'root', 'password');
 
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
