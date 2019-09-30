@@ -87,6 +87,11 @@ function addNewDiseaseToDB(PDO $db,
                            string $severity,
                            string $avgAnnualIncidence,
                            string $imgFileName) {
+
+    if ($imgFileName == 'No image uploaded') {
+        $imgFileName = 'no_img_uploaded.jpg';
+    }
+
     $query = $db->prepare('INSERT INTO `disease_table` (`Organism`, `Incubation_usual`, `Incubation_range`, `Symptoms`, `Severity`, `Avg_annual_incidence`, `Img_location`) 
 VALUES (:organism, :incubation_usual, :incubation_range, :symptoms, :severity, :avg_annual_incidence, :img_location)');
 

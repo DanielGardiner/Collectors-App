@@ -9,9 +9,7 @@ if (isset($_POST['organism'])
     && isset($_POST['incubation-range'])
     && isset($_POST['symptoms'])
     && isset($_POST['severity'])
-    && isset($_POST['avg-annual-incidence'])
-    && isset($_FILES['disease-img'])
-    && $_FILES['disease-img']['name'] != '') {
+    && isset($_POST['avg-annual-incidence'])) {
     $imgFileName = moveUploadedImgToFolderAndGrabName();
     $db = establishDisease_dbConnection();
     addNewDiseaseToDB($db, $_POST['organism'], $_POST['incubation-usual'], $_POST['incubation-range'],
@@ -49,7 +47,7 @@ if (isset($_POST['organism'])
             <label for="avg-annual-incidence">Average annual incidence</label>
             <input type="number" name="avg-annual-incidence" id="avg-annual-incidence" required>
             <label for="disease-img">Image</label>
-            <input type="file" name="disease-img" id="disease-img" required>
+            <input type="file" name="disease-img" id="disease-img">
             <input type="submit">
         </form>
     </div>
