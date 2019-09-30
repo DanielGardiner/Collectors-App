@@ -22,7 +22,6 @@ if (isset($_POST['organism'])
     && isset($_POST['severity'])
     && isset($_POST['avg-annual-incidence'])) {
     $imgFileName = moveUploadedImgToFolderAndGrabName();
-    echo $imgFileName;
     editOrganism($db, $_SESSION['selectedOrganism'], $_POST['organism'], $_POST['incubation-usual'],
                  $_POST['incubation-range'], $_POST['symptoms'], $_POST['severity'], $_POST['avg-annual-incidence'],
                  $imgFileName);
