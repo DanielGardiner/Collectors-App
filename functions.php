@@ -182,7 +182,7 @@ function createOrganismEditForm(array $organismArray): string {
         $organismArray['Incubation_range'] . '" required><label for="symptoms">Symptoms</label><input type="text" name="symptoms" id="symptoms" value = "' .
         $organismArray['Symptoms'] . '" required><label for="severity">Severity</label><input type="text" name="severity" id="severity" value = "' .
         $organismArray['Severity'] . '" required><label for="avg-annual-incidence">Average annual incidence</label><input type="number" name="avg-annual-incidence" id="avg-annual-incidence" value = "' .
-        $organismArray['Avg_annual_incidence'] . '" required><label for="disease-img">Image</label><input type="file" name="disease-img" id="disease-img"><input type="submit" value="Edit disease"></form>';
+        $organismArray['Avg_annual_incidence'] . '" required><label for="disease-img">Image (optional)</label><input type="file" name="disease-img" id="disease-img"><input type="submit" value="Edit disease"></form>';
 }
 
 /**
