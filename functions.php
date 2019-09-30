@@ -6,7 +6,7 @@
  * @return PDO connection to Disease_db database
  */
 function establishDisease_dbConnection(): PDO {
-    $db = new PDO('mysql:host=db;dbname=DiseaseDB2', 'root', 'password');
+    $db = new PDO('mysql:host=db;dbname=Disease_DB3', 'root', 'password');
 
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
@@ -219,7 +219,15 @@ string $incubationUsual, string $incubationRange, string $symptoms, string $seve
     $query->execute($executeArray);
 }
 
+/**
+ * Restore default diseases
+ *
+ * @param $db connection database
+ */
+function restoreDefaultDiseases($db) {
+    $query = $db->prepare('UPDATE `disease_table` SET `Deleted` = 1');
+    $query->execute();
 
-function restoreDiseases() {
-    // add code to restore diseases back to default;
+    $query = $db->prepare('UPDATE `disease_table` SET `Deleted` = 0 WHERE `Organism` IN ("Campylobacter", "Rotavirus", "Salmonella", "Cryptosporidium", "E. coli O157")');
+    $query->execute();
 }
