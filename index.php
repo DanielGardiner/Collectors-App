@@ -1,7 +1,12 @@
 <?php
+session_start();
 require_once('functions.php');
-
 $db = establishDisease_dbConnection();
+
+if (!isset($_SESSION['started'])) {
+    restoreDefaultDiseases($db);
+}
+
 $allData = retrieveData($db);
 
 ?>

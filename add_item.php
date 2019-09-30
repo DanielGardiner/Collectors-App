@@ -1,4 +1,7 @@
 <?php
+session_start();
+$_SESSION['started'] = 'Yes';
+
 require_once('functions.php');
 
 if (isset($_POST['organism'])
